@@ -15,9 +15,10 @@ class BasicInstallTest(unittest.TestCase):
         # self.fail('Finish the test!')
 
     def test_home_page_header(self):
-        browser = self.browser.get('http://127.0.0.1:8000')
-        header = browser.find_elements_by_tag_name('h1')[0]
-        self.assertIn('Михаил Егошин', header)
+        self.browser.get('http://127.0.0.1:8000')
+        # тут ошибка
+        header = self.browser.find_element(By.TAG_NAME, 'h1')
+        self.assertIn('Михаил Егошин', header.text)
         # self.fail('Finish the test!')
 
 if __name__ == '__main__':
